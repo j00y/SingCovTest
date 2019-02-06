@@ -1,8 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MatTableDataSource } from '@angular/material';
-import { Store } from '@ngrx/store';
-import { State } from 'app/redux/reducers/reducers';
-import { PolicyModel } from 'app/models/policy.model';
 
 @Component({
   selector: 'app-favs-modal',
