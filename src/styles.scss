@@ -97,6 +97,10 @@ body {
   position: relative;
 }
 
+.panel-filter-modal-class{
+  padding-bottom: 100px;
+}
+
 //@medias
 @media (max-width: 768px) {
   .hide-md {
@@ -112,6 +116,11 @@ body {
     width: 95vw;
     max-width: 100vw !important;
     min-height: 80vh;
+  }
+  
+  .panel-filter-modal-class{
+    width: 80vw;
+    max-width: 100vw !important;
   }
 
   .p-fav-modal {
@@ -130,12 +139,15 @@ body {
     min-height: 80vh;
   }
 
+  .panel-filter-modal-class {
+    width: 40vw;
+  }
+
   .p-fav-modal {
     padding-left: 10%;
     padding-right: 10%;
   }
 }
-
 
 //Common classes
 .section {
