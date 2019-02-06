@@ -19,7 +19,7 @@ export class FilterModalComponent implements OnInit {
   maxFilterPrice = 0;
   options: Options = {
     floor: 0,
-    ceil: 9000,
+    ceil: 0,
     step: 10,
     showTicks: false,
     hideLimitLabels: true,
