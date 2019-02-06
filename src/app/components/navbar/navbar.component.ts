@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialog } from '@angular/material';
 import { FavsModalComponent } from '../favs-modal/favs-modal.component';
 
 @Component({
@@ -14,7 +14,7 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
   }
   openFavsModal() {
-    const dialogRef = this.dialog.open(FavsModalComponent, {
+    this.dialog.open(FavsModalComponent, {
       backdropClass: 'backdrop-modal-class',
       panelClass: 'panel-modal-class'
     });
