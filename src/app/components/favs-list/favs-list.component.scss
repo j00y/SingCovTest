@@ -1,0 +1,85 @@
+@import "../../scss/colors";
+//Start: Strikethrough animation
+
+span {
+  position: relative;
+  display: block;
+  cursor: pointer;
+}
+
+span:before {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 1px;
+  top: 50%;
+  margin-top: -0.5px;
+  background: black;
+}
+
+span:hover:before {
+  background: black;
+  transition: width .5s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+@media (min-width: 100px) and (max-width: 450px) {
+  span:hover:before {
+    width: 57vw !important;
+  }
+
+  span:before {
+    left: -56vw !important;
+  }
+}
+
+@media (min-width: 450.1px) and (max-width: 767.9px) {
+  span:hover:before {
+    width: 64vw;
+  }
+
+  span:before {
+    left: -63vw;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1700px) {
+  span:hover:before {
+    width: 44vw;
+  }
+
+  span:before {
+    left: -44vw;
+  }
+}
+
+@media (min-width: 1700.1px) {
+  span:hover:before {
+    width: 46vw;
+  }
+
+  span:before {
+    left: -46vw;
+  }
+}
+
+//End: Strikethrough animation
+
+.delete-from-favs-icon {
+  color: black;
+  transition: color 0.2s ease;
+}
+
+.delete-from-favs-icon:hover {
+  color: $awesomeRed;
+}
+
+.scrollable-div {
+  height: 56vh;
+}
+
+@media (max-width: 450px) {
+  .px-xs-0 {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}

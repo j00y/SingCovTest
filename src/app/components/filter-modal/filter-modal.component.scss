@@ -1,0 +1,67 @@
+.close-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: grey;
+  transition: color 0.2s ease;
+}
+
+.close-icon:hover {
+  color: black;
+};
+
+::ng-deep {
+  .custom-slider .ng5-slider .ng5-slider-bar {
+    background: #0000002f !important;
+    height: 2px;
+  }
+
+  .custom-slider .ng5-slider .ng5-slider-selection {
+    background: rgb(0, 0, 0);
+  }
+
+  .custom-slider .ng5-slider .ng5-slider-pointer:focus {
+    outline: none;
+  }
+
+  .custom-slider .ng5-slider .ng5-slider-pointer {
+    width: 15px;
+    height: 15px;
+    top: auto; /* to remove the default positioning */
+    bottom: -4px;
+    background-color: rgb(0, 0, 0);
+    border-radius: 50%;
+  }
+
+  .custom-slider .ng5-slider .ng5-slider-pointer:after {
+    display: none;
+  }
+
+  .custom-slider .ng5-slider .ng5-slider-bubble {
+    bottom: 14px;
+  }
+
+  .custom-slider .ng5-slider .ng5-slider-limit {
+    font-weight: inherit;
+    color: rgb(0, 0, 0);
+  }
+
+  .custom-slider .ng5-slider .ng5-slider-tick {
+    width: 1px;
+    height: 5px;
+    margin-left: 4px;
+    border-radius: 0;
+    background: #000000;
+    top: -1px;
+  }
+
+  .custom-slider .ng5-slider .ng5-slider-tick.ng5-slider-selected {
+    background: rgb(0, 0, 0);
+  }
+}
+
+.centered {
+  margin: 0 auto;
+  padding-top: 15vh;
+  padding-bottom: 15vh;
+}

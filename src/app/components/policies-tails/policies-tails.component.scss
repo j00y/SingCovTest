@@ -1,0 +1,14 @@
+@import "../../scss/colors";
+
+.b-r-3px {
+  border-radius: 3px;
+}
+
+.fa-heart {
+  transition: color 0.2s ease;
+}
+
+.fa-heart:hover {
+  color: $awesomeRed;
+}
+  

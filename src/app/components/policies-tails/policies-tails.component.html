@@ -1,0 +1,79 @@
+<h2>
+  <i class="fas fa-file-contract mr-1"></i>Available policies
+</h2>
+<div class="justify-content-end algn-items-center">
+  <div class="ml-1">
+    <mat-chip-list *ngIf="isFilterActive">
+      <mat-chip (click)="openFilterModal()" [selectable]="false" [removable]="true" (removed)="deleteFilter()" color="primary"
+        selected>
+        ${{minFilterPrice}} - ${{maxFilterPrice}}
+        <mat-icon matChipRemove>cancel</mat-icon>
+      </mat-chip>
+    </mat-chip-list>
+  </div>
+  <div class="filter-button-div mx-1 justify-content-center align-items-center" matTooltip="Apply filter"
+    [matTooltipPosition]="'above'" (click)="openFilterModal()">
+    <i class="fas fa-filter"></i>
+  </div>
+</div>
+<div class="justify-content-between">
+  <div class="w-50">
+    <mat-form-field class="w-100">
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
+    </mat-form-field>
+  </div>
+  <div class="w-40 ml-1">
+    <mat-form-field class="w-100">
+      <mat-select placeholder="Sort by" [formControl]="sortingControl">
+        <mat-option [value]="''">-- None --</mat-option>
+        <mat-optgroup *ngFor="let sort of sortGroups" [label]="sort.sort">
+          <mat-option *ngFor="let type of sort.type" [value]="type">
+            {{type}}
+          </mat-option>
+        </mat-optgroup>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</div>
+<mat-accordion *ngIf="resultsFound">
+  <mat-expansion-panel *ngFor="let policy of dataSourceForTail">
+    <mat-expansion-panel-header>
+      <div class="tile-row algn-items-center justify-content-between w-100">
+        <div class="policy-tail-name">
+          <mat-panel-title>
+            {{policy.name}}
+          </mat-panel-title>
+        </div>
+        <div class="policy-tail-price">
+          <mat-panel-description>
+            {{policy.price}}$
+            <div class="ml-1 pointer" (click)="toggleFavPolicy(policy)">
+              <i *ngIf="!policy.favouritePolicy" class="far fa-heart pointer"></i>
+              <i *ngIf="policy.favouritePolicy" class="fa fa-heart pointer red-heart"></i>
+            </div>
+          </mat-panel-description>
+        </div>
+      </div>
+    </mat-expansion-panel-header>
+    <div class="tile-expanded-row algn-items-center justify-content-between w-100">
+      <div class="policy-tail-kind">
+        <mat-panel-description>
+          <img class="fix-image-size mr-1" src="../../../assets/images/{{policy.kindImage}}" alt="">
+          {{policy.kind | titlecase}}
+        </mat-panel-description>
+      </div>
+      <div class="policy-tail-brand">
+        <mat-panel-description>
+          {{policy.brand | titlecase}}
+          <img class="fix-image-size ml-1" src="../../../assets/images/{{policy.brandImage}}" alt="">
+        </mat-panel-description>
+      </div>
+    </div>
+  </mat-expansion-panel>
+  <mat-paginator class="b-r-3px mat-elevation-z2" *ngIf="resultsFound" [length]="length" [pageIndex]="pageIndex"
+    [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons (page)="paginationEvent($event)"></mat-paginator>
+</mat-accordion>
+
+<div *ngIf="!resultsFound" class="justify-content-center w-100">
+  <h3>No Results Found</h3>
+</div>

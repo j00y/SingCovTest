@@ -1,0 +1,22 @@
+.navbar {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  height: 5.125rem;
+  background-color: white;
+  position: fixed;
+  top: 0;
+  width: 90%;
+  z-index: 1;
+}
+
+.fav-button-div {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.fav-button-div:hover {
+  transition: background-color .2s ease-in-out;
+  background-color: rgba(0, 0, 0, 0.1);
+} 

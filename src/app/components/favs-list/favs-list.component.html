@@ -1,0 +1,25 @@
+<mat-form-field class="w-80 p-fav-modal pt-1">
+  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
+</mat-form-field>
+<ng-scrollbar #scrollable>
+  <div *ngIf="resultsFound">
+    <div class="scrollable-div">
+      <div *ngFor="let fav of favsList" class="p-fav-modal px-xs-0 justify-content-between">
+        <div class="align-items-center">
+          <img matTooltip="{{fav.kind | titlecase }}" class="fix-image-size mr-5px" src="../../../assets/images/{{fav.kindImage}}"
+            alt="">
+          <h4>{{fav.name | titlecase}}</h4>
+        </div>
+        <div class="align-items-center justify-content-between">
+          <h4>{{fav.brand | titlecase}}</h4>
+          <img class="fix-image-size ml-5px" src="../../../assets/images/{{fav.brandImage}}" alt="">
+          <span><i matTooltip="Remove policy from favourites" [matTooltipPosition]="'below'" class="fa fa-times ml-1 pointer delete-from-favs-icon"
+              (click)="removeFavFromFavs(fav)"></i></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!resultsFound" class="justify-content-center w-100">
+    <h3>No results found</h3>
+  </div>
+</ng-scrollbar>

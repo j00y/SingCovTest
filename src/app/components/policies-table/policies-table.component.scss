@@ -1,0 +1,15 @@
+@import "../../scss/colors";
+
+table,
+.mat-form-field {
+  width: 100%;
+  //table-layout: fixed;
+}
+
+.fa-heart {
+  transition: color 0.2s ease;
+}
+
+.fa-heart:hover {
+  color: $awesomeRed;
+}
