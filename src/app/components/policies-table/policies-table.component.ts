@@ -38,7 +38,6 @@ export class PoliciesTableComponent implements OnInit {
     this.resultsFound = true;
     this.dataSource = new MatTableDataSource([]);
     this.viewData = new MatTableDataSource([]);
-    const dialogConfig = new MatDialogConfig();
     this.isFilterActive = false;
     this.store.subscribe(data => {
       this.dataSource.data = data.policies.policiesList;
@@ -79,7 +78,7 @@ export class PoliciesTableComponent implements OnInit {
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     dialogConfig.backdropClass = 'backdrop-modal-class';
-    dialogConfig.panelClass = 'panel-modal-class';
+    dialogConfig.panelClass = 'panel-filter-modal-class';
     dialogConfig.data = {
       minPrice: this.minPrice,
       maxPrice: this.maxPrice,
