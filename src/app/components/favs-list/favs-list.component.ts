@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PolicyModel } from 'app/models/policy.model';
 import { Store } from '@ngrx/store';
 import { State } from 'app/redux/reducers/reducers';
-import { MatDialogRef, MatTableDataSource } from '@angular/material';
+import { MatTableDataSource } from '@angular/material';
 import * as policiesActions from '../../redux/actions/policies.actions';
 
 @Component({
@@ -34,13 +34,7 @@ export class FavsListComponent implements OnInit {
     this.resultsFound = this.checkIfNoResultsFound(this.favsList);
   }
   checkIfNoResultsFound(data: PolicyModel[]): boolean {
-    let results = true;
-    if (data.length === 0) {
-      results = false;
-    } else {
-      results = true;
-    }
-    return results;
+    return !data.length ? false : true;
   }
   returnFavsPoliciesOfAllPolicies(data: MatTableDataSource<PolicyModel>): PolicyModel[] {
     const favsList: PolicyModel[] = [];
